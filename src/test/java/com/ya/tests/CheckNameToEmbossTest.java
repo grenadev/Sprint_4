@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -13,9 +15,11 @@ public class CheckNameToEmbossTest {
     private final String name;
     private final boolean expected;
 
+
     public CheckNameToEmbossTest(String name, boolean expected) {
         this.name = name;
         this.expected = expected;
+
     }
 
     @Parameterized.Parameters
@@ -28,6 +32,9 @@ public class CheckNameToEmbossTest {
                 {"Два  пробела", false},
                 {"12", false},
                 {"Двадцатььььь буковок", false},
+                {"а б", false},
+                {"девять надцатьььььь", false},
+                {null, false},
         };
     }
 
